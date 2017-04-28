@@ -2,7 +2,8 @@
   <g class="axis" v-bind:transform="transform"></g>
 </template>
 
-<script>
+<script lang="js">
+  /* @flow */
   import {
     select,
     scaleLinear, scaleTime, scalePow, scaleLog,
@@ -237,14 +238,14 @@
         }
       },
 
-      createElement(name, type = 'g') {
+      createElement(name: string, type: string = 'g') {
         if (!this.elements[name]) {
           this.elements[name] = this.rootElement.append(type).attr('class', `axis-${name}`);
         }
         return this.elements[name];
       },
 
-      removeElement(name) {
+      removeElement(name: string) {
         if (!this.elements[name]) return;
         this.elements[name].remove();
         this.elements[name] = null;

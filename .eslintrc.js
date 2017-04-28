@@ -9,10 +9,14 @@ module.exports = {
   env: {
     browser: true,
   },
-  extends: 'airbnb-base',
+  extends: [
+    'vue',
+    'airbnb-base',
+  ],
   // required to lint *.vue files
   plugins: [
-    'html'
+    'html',
+    'flowtype-errors'
   ],
   // check if imports actually resolve
   'settings': {
@@ -34,6 +38,8 @@ module.exports = {
       'optionalDependencies': ['test/unit/index.js']
     }],
     // allow debugger during development
-    'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
+    'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
+    // show flow errors
+    'flowtype-errors/show-errors': 2,
   }
 }
